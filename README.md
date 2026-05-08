@@ -6,26 +6,23 @@ El diseno parte de `pagina-diaps`: composicion centrada, modo claro/nocturno y e
 
 ## Editar enlaces
 
-Abre `index.html` y cambia cada bloque:
+Abre `index.html` y anade una nueva entrada dentro de `.domain-list`:
 
 ```html
-<a class="domain-link" href="#" data-pending>
-  <span>dominio1</span>
-  <i aria-hidden="true"></i>
-</a>
+<li>
+  <a
+    class="domain-link"
+    href="https://ejemplo.diegoayala.com/"
+    target="_blank"
+    rel="noreferrer"
+  >
+    <span>Nombre visible</span>
+    <i aria-hidden="true"></i>
+  </a>
+</li>
 ```
 
-por el nombre y URL definitivos:
-
-```html
-<a class="domain-link" href="https://ejemplo.diegoayala.com">
-  <span>Nombre visible</span>
-  <i aria-hidden="true"></i>
-</a>
-```
-
-Quita `data-pending` cuando el enlace ya apunte a una pagina real.
-Los enlaces con `data-pending` o `href="#"` quedan ocultos por defecto.
+Las entradas con `data-pending` o `href="#"` quedan ocultas por defecto.
 
 ## Abrir
 

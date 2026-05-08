@@ -1,7 +1,4 @@
-const toast = document.querySelector("[data-toast]");
 const themeToggle = document.querySelector("[data-theme-toggle]");
-const domainLinks = [...document.querySelectorAll(".domain-link")];
-let toastTimer;
 
 function setTheme(theme) {
   document.documentElement.dataset.theme = theme;
@@ -16,28 +13,9 @@ function setTheme(theme) {
   }
 }
 
-function showToast(message) {
-  if (!toast) return;
-  window.clearTimeout(toastTimer);
-  toast.textContent = message;
-  toast.classList.add("is-visible");
-  toastTimer = window.setTimeout(() => {
-    toast.classList.remove("is-visible");
-  }, 2400);
-}
-
 setTheme(document.documentElement.dataset.theme || "light");
 
 themeToggle?.addEventListener("click", () => {
   const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
   setTheme(nextTheme);
-});
-
-document.querySelectorAll("[data-pending]").forEach((link) => {
-  link.addEventListener("click", (event) => {
-    event.preventDefault();
-    domainLinks.forEach((item) => item.classList.remove("is-active"));
-    link.classList.add("is-active");
-    showToast("Enlace pendiente de configurar.");
-  });
 });
